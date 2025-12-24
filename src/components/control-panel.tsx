@@ -23,11 +23,7 @@ export default function ControlPanel({
   const isMaxReached = currentCount >= MAX_ORNAMENTS;
 
   return (
-    <div className="bg-gradient-to-br from-red-900 to-green-900 p-6 rounded-2xl shadow-2xl border-4 border-yellow-600">
-      <h2 className="text-2xl font-bold text-yellow-100 mb-4 text-center">
-        🎄 Agrega Esferas Navideñas
-      </h2>
-
+    <div className="bg-black/50 p-6 rounded-2xl shadow-2xl border-4 border-yellow-600">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
