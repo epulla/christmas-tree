@@ -72,11 +72,16 @@ export default function Ornament({
         }`}
         style={{
           backgroundColor: ornament.color,
-          boxShadow: `0 4px 8px rgba(0,0,0,0.3), inset -2px -2px 8px rgba(0,0,0,0.3), inset 2px 2px 8px rgba(255,255,255,0.3)`,
+          boxShadow: `
+            0 4px 12px rgba(0,0,0,0.5), 
+            inset -3px -3px 10px rgba(0,0,0,0.4), 
+            inset 3px 3px 10px rgba(255,255,255,0.5),
+            0 0 15px ${ornament.color}40
+          `,
         }}
       >
         {/* Brillo de la esfera */}
-        <div className="absolute top-1 left-1 w-2 h-2 bg-white rounded-full opacity-40"></div>
+        <div className="absolute top-1 left-1 w-2 h-2 bg-white rounded-full opacity-60"></div>
 
         {/* Gancho superior */}
         <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-yellow-600 rounded-full"></div>
