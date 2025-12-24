@@ -1,43 +1,43 @@
-# Astro Starter Kit: Minimal
+# 🎄 Árbol de Navidad Interactivo
 
-```sh
-pnpm create astro@latest -- --template minimal
+## 📦 Instalación
+
+```bash
+npm install html2canvas
+npm install -D @types/html2canvas
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📁 Estructura
 
-## 🚀 Project Structure
+```
+src/
+├── components/
+│   ├── christmas-tree.tsx      # Componente principal
+│   ├── ornament.tsx            # Esfera individual con drag & drop
+│   ├── control-panel.tsx       # Panel para agregar esferas
+│   ├── snow-effect.tsx         # Efecto de nieve
+│   └── export-button.tsx       # Botón para descargar
+├── hooks/
+│   └── use-ornaments.ts        # Hook para manejar estado
+├── utils/
+│   ├── constants.ts            # Colores y configuración
+│   └── export-image.ts         # Lógica de exportación
+├── styles/
+│   └── global.css              # Estilos y animaciones CSS
+└── pages/
+    └── index.astro             # Página principal
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+public/
+└── tree.webp                   # Imagen del árbol navideño
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🚀 Uso
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Copia los archivos a tu proyecto Astro existente
+2. Importa en tu página principal
+3. Listo!
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🎨 Personalizar
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Cambiar colores:** Edita `src/utils/constants.ts`
+**Cambiar límite de esferas:** Cambia `MAX_ORNAMENTS` en constants.ts
