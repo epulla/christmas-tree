@@ -1,13 +1,15 @@
-// Colores navideños tradicionales
+// Colores navideños más saturados y vibrantes
 export const ORNAMENT_COLORS = [
-  "#DC2626", // Rojo brillante
-  "#991B1B", // Rojo oscuro
-  "#16A34A", // Verde brillante
-  "#15803D", // Verde oscuro
-  "#F59E0B", // Dorado
-  "#D97706", // Dorado oscuro
-  "#EF4444", // Rojo claro
-  "#22C55E", // Verde claro
+  "#FF0000", // Rojo puro brillante
+  "#CC0000", // Rojo intenso
+  "#00FF00", // Verde neón brillante
+  "#00CC00", // Verde saturado
+  "#FFD700", // Dorado brillante
+  "#FFA500", // Naranja vibrante
+  "#FF1493", // Rosa fucsia
+  "#00FFFF", // Cyan brillante
+  "#FF00FF", // Magenta
+  "#FFFF00", // Amarillo puro
 ];
 
 // Posiciones predefinidas para las esferas (25 posiciones distribuidas)
