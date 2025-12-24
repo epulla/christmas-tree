@@ -40,7 +40,7 @@ export default function ChristmasTree() {
 
             {/* Advertencia */}
             {ornaments.length > 0 && (
-              <div className="bg-yellow-600 bg-opacity-20 border-2 border-yellow-500 rounded-lg p-4">
+              <div className="bg-yellow-600/50 bg-opacity-20 border-4 border-yellow-500 rounded-lg p-4">
                 <p className="text-yellow-100 text-sm text-center">
                   ⚠️ <strong>Importante:</strong> Si recargas la página,
                   perderás tus cambios. Descarga tu árbol antes de salir.
