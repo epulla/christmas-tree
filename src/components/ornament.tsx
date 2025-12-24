@@ -24,22 +24,27 @@ export default function Ornament({
     }
   }, []);
 
+  const updatePosition = (clientX: number, clientY: number) => {
+    if (!containerRef.current) return;
+
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = ((clientX - rect.left) / rect.width) * 100;
+    const y = ((clientY - rect.top) / rect.height) * 100;
+
+    // Limitar dentro del contenedor
+    const clampedX = Math.max(5, Math.min(95, x));
+    const clampedY = Math.max(5, Math.min(95, y));
+
+    onUpdatePosition(ornament.id, clampedX, clampedY);
+  };
+
+  // Manejo de eventos de mouse
   const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsDragging(true);
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
-      if (!containerRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = ((moveEvent.clientX - rect.left) / rect.width) * 100;
-      const y = ((moveEvent.clientY - rect.top) / rect.height) * 100;
-
-      // Limitar dentro del contenedor
-      const clampedX = Math.max(5, Math.min(95, x));
-      const clampedY = Math.max(5, Math.min(95, y));
-
-      onUpdatePosition(ornament.id, clampedX, clampedY);
+      updatePosition(moveEvent.clientX, moveEvent.clientY);
     };
 
     const handleMouseUp = () => {
@@ -52,6 +57,27 @@ export default function Ornament({
     document.addEventListener("mouseup", handleMouseUp);
   };
 
+  // Manejo de eventos táctiles (móvil)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+
+    const handleTouchMove = (moveEvent: TouchEvent) => {
+      moveEvent.preventDefault();
+      const touch = moveEvent.touches[0];
+      updatePosition(touch.clientX, touch.clientY);
+    };
+
+    const handleTouchEnd = () => {
+      setIsDragging(false);
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", handleTouchEnd);
+    };
+
+    document.addEventListener("touchmove", handleTouchMove, { passive: false });
+    document.addEventListener("touchend", handleTouchEnd);
+  };
+
   return (
     <div
       ref={ornamentRef}
@@ -62,8 +88,10 @@ export default function Ornament({
         left: `${ornament.x}%`,
         top: `${ornament.y}%`,
         transform: "translate(-50%, -50%)",
+        touchAction: "none", // Prevenir scroll mientras se arrastra
       }}
       onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
     >
       {/* Esfera */}
       <div
@@ -96,13 +124,16 @@ export default function Ornament({
         </div>
       )}
 
-      {/* Botón eliminar (solo visible en hover) */}
+      {/* Botón eliminar (siempre visible en móvil, hover en desktop) */}
       <button
         onClick={(e) => {
           e.stopPropagation();
           onRemove(ornament.id);
         }}
-        className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-red-600 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center text-xs font-bold hover:bg-red-700"
+        onTouchEnd={(e) => {
+          e.stopPropagation();
+        }}
+        className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-red-600 text-white rounded-full opacity-70 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center text-xs font-bold hover:bg-red-700 active:scale-90"
         aria-label="Eliminar esfera"
       >
         ×

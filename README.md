@@ -3,8 +3,9 @@
 ## 📦 Instalación
 
 ```bash
-npm install html2canvas
-npm install -D @types/html2canvas
+npm install html-to-image
+# o
+pnpm install html-to-image
 ```
 
 ## 📁 Estructura
@@ -36,6 +37,22 @@ public/
 1. Copia los archivos a tu proyecto Astro existente
 2. Importa en tu página principal
 3. Listo!
+
+## ✨ Características
+
+- 🎨 **25 esferas personalizables** con colores vibrantes
+- 🖱️ **Drag & drop** funcional en desktop y móvil
+- 📱 **Totalmente responsive** - funciona en cualquier dispositivo
+- 📸 **Exportar como imagen** en alta resolución
+- ❄️ **Efectos visuales** - nieve y animaciones
+- 🎄 **Sin backend** - 100% frontend
+
+## 📱 Compatibilidad
+
+- ✅ **Desktop**: Chrome, Firefox, Safari, Edge
+- ✅ **Móvil**: iOS Safari, Chrome Android
+- ✅ **Tablet**: iPad, Android tablets
+- ✅ **Touch events**: Soporte completo para pantallas táctiles
 
 ## 🎨 Personalizar
 

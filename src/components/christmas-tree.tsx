@@ -9,7 +9,7 @@ export default function ChristmasTree() {
     useOrnaments();
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
       {/* Efecto de nieve */}
       <SnowEffect />
 
@@ -17,7 +17,7 @@ export default function ChristmasTree() {
       <div className="relative z-10 container mx-auto px-4 py-8">
         {/* Header */}
         <header className="text-center mb-8">
-          <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-red-500 via-yellow-500 to-green-500 mb-2 drop-shadow-lg">
+          <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 mb-2 drop-shadow-lg">
             🎄 Mi Árbol de Navidad 🎄
           </h1>
           <p className="text-yellow-100 text-lg md:text-xl font-semibold mb-4">
@@ -30,7 +30,7 @@ export default function ChristmasTree() {
               href="https://github.com/epulla/christmas-tree"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 border-2 border-yellow-600 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-all duration-200 hover:scale-105"
+              className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-all duration-200 hover:scale-105"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ export default function ChristmasTree() {
               href="https://www.tiktok.com/@erickdev11"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 border-2 border-yellow-600 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-all duration-200 hover:scale-105"
+              className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-all duration-200 hover:scale-105"
               aria-label="TikTok"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@ export default function ChristmasTree() {
               href="https://www.linkedin.com/in/erickpulla/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 border-2 border-yellow-600 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-all duration-200 hover:scale-105"
+              className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-all duration-200 hover:scale-105"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -95,8 +95,8 @@ export default function ChristmasTree() {
           <div className="lg:col-span-2">
             <div
               id="christmas-tree-container"
-              className="relative w-full aspect-square max-w-2xl mx-auto bg-linear-to-b from-slate-800 to-slate-900 rounded-3xl shadow-2xl border-4 border-yellow-600 overflow-hidden flex items-center justify-center"
-              style={{ userSelect: "none" }}
+              className="relative w-full aspect-square max-w-2xl mx-auto bg-gradient-to-b from-slate-800 to-slate-900 rounded-3xl shadow-2xl border-4 border-yellow-600 overflow-hidden flex items-center justify-center"
+              style={{ userSelect: "none", touchAction: "pan-y pinch-zoom" }}
             >
               {/* Copos de nieve estáticos en el fondo */}
               <div className="absolute inset-0 pointer-events-none z-0">
@@ -158,7 +158,9 @@ export default function ChristmasTree() {
 
         {/* Footer */}
         <footer className="text-center mt-12 text-yellow-100">
-          <p className="text-sm">Hecho con ❤️ para esta Navidad 2024 🎄</p>
+          <p className="text-sm">
+            Hecho con ❤️ para esta Navidad {new Date().getFullYear()} 🎄
+          </p>
         </footer>
       </div>
     </div>
