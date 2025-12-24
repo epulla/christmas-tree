@@ -67,7 +67,7 @@ export default function Ornament({
     >
       {/* Esfera */}
       <div
-        className={`relative w-12 h-12 rounded-full shadow-lg transition-all duration-300 ${
+        className={`relative w-8 h-8 rounded-full shadow-lg transition-all duration-300 ${
           isDragging ? "scale-110" : "hover:scale-105"
         }`}
         style={{
@@ -76,18 +76,20 @@ export default function Ornament({
         }}
       >
         {/* Brillo de la esfera */}
-        <div className="absolute top-2 left-2 w-4 h-4 bg-white rounded-full opacity-40"></div>
+        <div className="absolute top-1 left-1 w-2 h-2 bg-white rounded-full opacity-40"></div>
 
         {/* Gancho superior */}
-        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-yellow-600 rounded-full"></div>
+        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-yellow-600 rounded-full"></div>
       </div>
 
       {/* Nombre */}
-      <div className="absolute top-14 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-        <span className="text-xs font-semibold text-yellow-100 bg-green-900 bg-opacity-80 px-2 py-1 rounded shadow">
-          {ornament.name}
-        </span>
-      </div>
+      {ornament.name && (
+        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+          <span className="text-xs font-semibold text-yellow-100 bg-green-900 bg-opacity-80 px-1.5 py-0.5 rounded shadow">
+            {ornament.name}
+          </span>
+        </div>
+      )}
 
       {/* Botón eliminar (solo visible en hover) */}
       <button
@@ -95,7 +97,7 @@ export default function Ornament({
           e.stopPropagation();
           onRemove(ornament.id);
         }}
-        className="absolute -top-1 -right-1 w-5 h-5 bg-red-600 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center text-xs font-bold hover:bg-red-700"
+        className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-red-600 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center text-xs font-bold hover:bg-red-700"
         aria-label="Eliminar esfera"
       >
         ×
