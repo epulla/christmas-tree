@@ -23,7 +23,7 @@ export default function ControlPanel({
   const isMaxReached = currentCount >= MAX_ORNAMENTS;
 
   return (
-    <div className="bg-black/50 p-6 rounded-2xl shadow-2xl border-4 border-yellow-600">
+    <div className="bg-slate-800 p-6 rounded-2xl shadow-2xl border-4 border-yellow-600">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label

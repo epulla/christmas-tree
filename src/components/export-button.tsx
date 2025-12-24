@@ -28,7 +28,7 @@ export default function ExportButton({
     <button
       onClick={handleExport}
       disabled={disabled || isExporting}
-      className="w-full py-4 px-6 bg-black/50 disabled:from-gray-400 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-lg rounded-xl shadow-2xl transform transition-all duration-200 hover:scale-105 active:scale-95 border-4 border-yellow-600"
+      className="w-full py-4 px-6 bg-slate-800 disabled:from-gray-400 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-lg rounded-xl shadow-2xl transform transition-all duration-200 hover:scale-105 active:scale-95 border-4 border-yellow-600"
     >
       {isExporting ? (
         <span className="flex items-center justify-center gap-2">
