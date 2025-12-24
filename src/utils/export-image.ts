@@ -1,4 +1,4 @@
-import html2canvas from "html2canvas";
+import { toPng } from "html-to-image";
 
 export const exportAsImage = async (
   elementId: string,
@@ -12,17 +12,23 @@ export const exportAsImage = async (
   }
 
   try {
-    const canvas = await html2canvas(element, {
+    const dataUrl = await toPng(element, {
+      quality: 1,
+      pixelRatio: 3,
       backgroundColor: "#0f172a",
-      scale: 2, // Mayor resolución
-      logging: false,
+      cacheBust: true,
+      style: {
+        margin: "0",
+        padding: "0",
+      },
     });
 
     const link = document.createElement("a");
     link.download = filename;
-    link.href = canvas.toDataURL("image/png");
+    link.href = dataUrl;
     link.click();
   } catch (error) {
     console.error("Error exporting image:", error);
+    throw error;
   }
 };
